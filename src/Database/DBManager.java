@@ -68,22 +68,7 @@ public class DBManager  {
         }
     }
 
-    public void noCountProduct() {
-        try{
-            PreparedStatement statement = connection.prepareStatement("" + "SELECT * FROM product WHERE count = 1");
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()){
-                int id = resultSet.getInt("id");
-                statement = connection.prepareStatement("DELETE FROM product WHERE id = ?");
-                statement.setInt(1,id);
-                statement.executeUpdate();
-                statement.close();
-            }
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+
 
 
 
@@ -132,6 +117,28 @@ public class DBManager  {
                 String name = resultSet.getString("name");
                 int price = resultSet.getInt("price");
                 String srok = resultSet.getString("srok");
+                product = new Product(id, name, price,srok, count);
+            }
+
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return product;
+    }
+
+    public Product getProductCount(Integer idka){
+        Product product = new Product();
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE id = '" + idka + "'");
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                Integer id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int price = resultSet.getInt("price");
+                String srok = resultSet.getString("srok");
+                int count = resultSet.getInt("count");
                 product = new Product(id, name, price,srok, count);
             }
 
@@ -319,7 +326,7 @@ public class DBManager  {
             statement.setInt(2, food.getPrice());
             statement.setString(3, food.getSrok());
             statement.setInt(4, food.getCount());
-            statement.setDouble(5, food.getKg());
+            statement.setString(5, food.getKg());
             statement.executeUpdate();
 
             statement.close();
@@ -398,7 +405,7 @@ public class DBManager  {
                 int price = resultSet.getInt("price");
                 String srok = resultSet.getString("srok");
                 int count = resultSet.getInt("count");
-                double kg = resultSet.getDouble("kg");
+                String kg = resultSet.getString("kg");
 
                 foodArrayList.add(new Food(id, name, price, srok, count,kg));
             }

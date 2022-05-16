@@ -15,13 +15,13 @@ public class ListMenu extends Container {
 
 
         JButton alistButton = new JButton("LIST Alco");
-        alistButton.setBounds(100, 50, 100, 30);
+        alistButton.setBounds(75, 50, 150, 30);
         add(alistButton);
         JButton flistButton = new JButton("LIST Food");
-        flistButton.setBounds(250, 50, 100, 30);
+        flistButton.setBounds(225, 50, 150, 30);
         add(flistButton);
         JButton plistButton = new JButton("LIST Product");
-        plistButton.setBounds(375, 50, 100, 30);
+        plistButton.setBounds(375, 50, 150, 30);
         add(plistButton);
 
 

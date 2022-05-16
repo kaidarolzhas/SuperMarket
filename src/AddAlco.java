@@ -33,7 +33,7 @@ public class AddAlco extends Container {
         litrLabel.setBounds(450, 100, 95, 30);
         add(litrLabel);
         JLabel ageLabel = new JLabel("Age");
-        ageLabel.setBounds(50, 200, 95, 30);
+        ageLabel.setBounds(50, 190, 95, 30);
         add(ageLabel);
 
         JTextField nameField = new JTextField();
@@ -57,16 +57,16 @@ public class AddAlco extends Container {
         add(litrField);
 
         JTextField ageField = new JTextField();
-        ageField.setBounds(50, 250, 95, 30);
+        ageField.setBounds(50, 230, 95, 30);
         add(ageField);
 
 
         JButton findButton = new JButton("Add");
-        findButton.setBounds(450, 200, 95, 30);
+        findButton.setBounds(450, 230, 95, 30);
         add(findButton);
 
         JButton backButton = new JButton("Back to menu");
-        backButton.setBounds(275, 200, 150, 30);
+        backButton.setBounds(275, 230, 150, 30);
         add(backButton);
 
         findButton.addActionListener(new ActionListener() {

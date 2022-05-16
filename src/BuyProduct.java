@@ -7,8 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Class.Alco;
+import Class.Product;
 
 public class BuyProduct extends Container {
+    public static Product product;
     public static Alco alco;
     public static JTextArea textArea;
     public BuyProduct(){
@@ -58,20 +60,27 @@ public class BuyProduct extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                Packagedata pd5 = new Packagedata("GET COUNT",Integer.parseInt(numberField.getText()));
+                Main.connect(pd5);
+
                 Packagedata pd0 = new Packagedata("GET AGE",Integer.parseInt(numberField.getText()));
                 Main.connect(pd0);
-                System.out.println(alco.getAge());
-                if(Menu.customer.getAge()>=alco.getAge()) {
-                    Packagedata pd = new Packagedata("ADD CARD", Menu.customer.getId(), Integer.parseInt(numberField.getText()), Integer.parseInt(countField.getText()));
-                    Main.connect(pd);
-                    Packagedata pd3 = new Packagedata("UPDATE PRODUCT", Integer.parseInt(numberField.getText()), Integer.parseInt(countField.getText()));
-                    Main.connect(pd3);
-                    Packagedata pd2 = new Packagedata("DELETE PRODUCT");
-                    Main.connect(pd2);
-                    JOptionPane.showMessageDialog(null,"SUCCESSFUL");
+                System.out.println(Integer.parseInt(countField.getText()));
+                System.out.println(product.getCount());
+                if(Integer.parseInt(countField.getText())<= product.getCount()) {
+
+                    if (Menu.customer.getAge() >= alco.getAge()) {
+                        Packagedata pd = new Packagedata("ADD CARD", Menu.customer.getId(), Integer.parseInt(numberField.getText()), Integer.parseInt(countField.getText()));
+                        Main.connect(pd);
+                        Packagedata pd3 = new Packagedata("UPDATE PRODUCT", Integer.parseInt(numberField.getText()), Integer.parseInt(countField.getText()));
+                        Main.connect(pd3);
+                        JOptionPane.showMessageDialog(null, "SUCCESSFUL");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "This " + alco.getAge() + "+ ");
+                    }
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "This " + alco.getAge() + "+ ");
+                    JOptionPane.showMessageDialog(null, " Limited number of products");
                 }
 
 

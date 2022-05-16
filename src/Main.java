@@ -14,7 +14,7 @@ public class Main {
 
     public static void connect(Packagedata pd) {
         try {
-            Socket socket = new Socket("127.0.0.1", 3131);
+            Socket socket = new Socket("127.0.0.1", 2323);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 
@@ -79,6 +79,13 @@ public class Main {
                 Alco customer = infoFromServer.getAlco();
 
                 BuyProduct.alco = customer;
+            }
+            else if (pd.getOperationType().equals("GET COUNT")) {
+                outputStream.writeObject(pd);
+                Packagedata infoFromServer = (Packagedata) inputStream.readObject();
+                Product customer = infoFromServer.getProduct();
+
+                BuyProduct.product = customer;
             }
             else if (pd.getOperationType().equals("LIST CARD")) {
                 outputStream.writeObject(pd);

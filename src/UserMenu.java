@@ -18,7 +18,7 @@ public class UserMenu extends Container {
         info.setBounds(100, 100, 400, 170);
         add(info);
         JLabel comp = new JLabel("YOUR CART:" );
-        comp.setBounds(250, 70, 150, 20);
+        comp.setBounds(275, 70, 150, 20);
         add(comp);
 
 

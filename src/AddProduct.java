@@ -11,46 +11,46 @@ public class AddProduct extends Container {
         setLayout(null);
 
         JLabel nameFromLabel = new JLabel("Name");
-        nameFromLabel.setBounds(50, 100, 95, 30);
+        nameFromLabel.setBounds(75, 100, 95, 30);
         add(nameFromLabel);
 
         JLabel priceLabel = new JLabel("Price");
-        priceLabel.setBounds(150, 100, 95, 30);
+        priceLabel.setBounds(175, 100, 95, 30);
         add(priceLabel);
 
         JLabel srokLabel = new JLabel("Storage period");
-        srokLabel.setBounds(250, 100, 150, 30);
+        srokLabel.setBounds(275, 100, 150, 30);
         add(srokLabel);
 
         JLabel countLabel = new JLabel("Count");
-        countLabel.setBounds(350, 100, 95, 30);
+        countLabel.setBounds(375, 100, 95, 30);
         add(countLabel);
 
 
 
         JTextField nameField = new JTextField();
-        nameField.setBounds(50, 150, 95, 30);
+        nameField.setBounds(75, 150, 95, 30);
         add(nameField);
 
         JTextField priceField = new JTextField();
-        priceField.setBounds(150, 150, 95, 30);
+        priceField.setBounds(175, 150, 95, 30);
         add(priceField);
 
         JTextField srokField = new JTextField();
-        srokField.setBounds(250, 150, 95, 30);
+        srokField.setBounds(275, 150, 95, 30);
         add(srokField);
 
         JTextField countField = new JTextField();
-        countField.setBounds(350, 150, 95, 30);
+        countField.setBounds(375, 150, 95, 30);
         add(countField);
 
 
         JButton findButton = new JButton("Add");
-        findButton.setBounds(450, 200, 95, 30);
+        findButton.setBounds(375, 200, 95, 30);
         add(findButton);
 
         JButton backButton = new JButton("Back to menu");
-        backButton.setBounds(275, 200, 150, 30);
+        backButton.setBounds(175, 200, 150, 30);
         add(backButton);
 
         findButton.addActionListener(new ActionListener() {

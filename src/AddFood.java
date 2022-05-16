@@ -28,7 +28,7 @@ public class AddFood extends Container {
         countLabel.setBounds(350, 100, 95, 30);
         add(countLabel);
 
-        JLabel kgLabel = new JLabel("kg");
+        JLabel kgLabel = new JLabel("Sort");
         kgLabel.setBounds(450, 100, 95, 30);
         add(kgLabel);
 
@@ -45,11 +45,11 @@ public class AddFood extends Container {
         add(srokField);
 
         JTextField countField = new JTextField();
-        countField.setBounds(450, 150, 95, 30);
+        countField.setBounds(350, 150, 95, 30);
         add(countField);
 
         JTextField kgField = new JTextField();
-        kgField.setBounds(350, 150, 95, 30);
+        kgField.setBounds(450, 150, 95, 30);
         add(kgField);
 
         JButton findButton = new JButton("Add");
@@ -57,13 +57,13 @@ public class AddFood extends Container {
         add(findButton);
 
         JButton backButton = new JButton("Back to menu");
-        backButton.setBounds(275, 200, 150, 30);
+        backButton.setBounds(250, 200, 150, 30);
         add(backButton);
 
         findButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Food alco = new Food(null,(String) nameField.getText(), Integer.parseInt(priceField.getText()),srokField.getText(),Integer.parseInt(countField.getText()),Double.parseDouble(kgField.getText()));
+                Food alco = new Food(null,(String) nameField.getText(), Integer.parseInt(priceField.getText()),srokField.getText(),Integer.parseInt(countField.getText()),kgField.getText());
                 Packagedata pd = new Packagedata("ADD FOOD", alco);
                 Main.connect(pd);
                 JOptionPane.showMessageDialog(null,"SUCCESSFUL");

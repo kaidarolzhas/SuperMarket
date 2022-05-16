@@ -70,6 +70,13 @@ public class ServerThread extends Thread{
                     outputStream.writeObject(ticketlist);
                     break;
                 }
+                else if(data.getOperationType().equals("GET COUNT")){
+                    Product customer = manager.getProductCount(data.getId_user());
+                    Packagedata ticketlist = new Packagedata();
+                    ticketlist.setProduct(customer);;
+                    outputStream.writeObject(ticketlist);
+                    break;
+                }
                 else if(data.getOperationType().equals("LIST FOOD")){
                     ArrayList<Food> arrayAlco = manager.getAllFood();
                     Packagedata alcolist = new Packagedata();
@@ -88,12 +95,6 @@ public class ServerThread extends Thread{
                     int idServer = data.getId_product();
                     int count = data.getId_user();
                     manager.updateProduct(idServer, count);
-                    break;
-                }
-
-
-                else if(data.getOperationType().equals("DELETE PRODUCT")){
-                    manager.noCountProduct();
                     break;
                 }
                 else if(data.getOperationType().equals("LIST CARD")){
